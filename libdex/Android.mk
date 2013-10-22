@@ -54,6 +54,10 @@ dex_include_files := \
 ##
 ifneq ($(SDK_ONLY),true)  # SDK_only doesn't need device version
 
+ifneq ($(TARGET_BUILD_VARIANT),user)
+LOCAL_CFLAGS += -DALLOW_DEXROOT_ON_CACHE
+endif
+
 include $(CLEAR_VARS)
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
