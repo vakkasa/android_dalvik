@@ -72,9 +72,10 @@ else  # !dvm_make_debug_vm
   # - compiler optimizations enabled (redundant for "release" builds)
   # - (debugging and profiling still enabled)
   #
-  #LOCAL_CFLAGS += -DNDEBUG -DLOG_NDEBUG=1
+  LOCAL_CFLAGS += -DNDEBUG -DLOG_NDEBUG=1
   # "-O2" is redundant for device (release) but useful for sim (debug)
-  #LOCAL_CFLAGS += -O2 -Winline
+  LOCAL_CFLAGS += -O2 -finline-functions
+  # -Winline
   #LOCAL_CFLAGS += -DWITH_EXTRA_OBJECT_VALIDATION
   LOCAL_CFLAGS += -DDVM_SHOW_EXCEPTION=1
   # if you want to try with assertions on the device, add:
