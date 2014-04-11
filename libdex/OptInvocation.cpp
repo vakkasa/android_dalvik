@@ -127,8 +127,8 @@ char* dexOptGenerateCacheFileName(const char* fileName, const char* subFileName)
 #ifdef ALLOW_DEXROOT_ON_CACHE
     /* Cache anything stored on /system in cacheRoot, everything else in dataRoot */
     if (!strncmp(absoluteFile, systemRoot, strlen(systemRoot))) {
-        property_get("persist.dalvik.vm.dexopt-data-only", dexoptDataOnly, "1");
-        if (strcmp(dexoptDataOnly, "1") != 0) {
+        property_get("persist.dalvik.vm.dexopttocache", dexoptDataOnly, "0");
+        if (strcmp(dexoptDataOnly, "0") != 0) {
             dexRoot = cacheRoot;
         }
     }
